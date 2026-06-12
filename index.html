@@ -422,3 +422,250 @@
             box-shadow: 0 5px 15px rgba(0,0,0,0.1);
             transition: background-color 0.3;
         }
+
+        /* Ears */
+        .ear {
+            position: absolute;
+            width: 28px;
+            height: 38px;
+            background-color: #FFD3B6;
+            border-radius: 50%;
+            top: 115px;
+            z-index: 9;
+            border: 1px solid rgba(0,0,0,0.1);
+        }
+
+        .ear.left {
+            left: 55px;
+        }
+
+        .ear.right {
+            right: 55px;
+        }
+
+        .face-center {
+            position: absolute;
+            width: 130px;
+            height: 110px;
+            top: 75px;
+            left: 35px;
+        }
+
+        .nose {
+            position: absolute;
+            width: 18px;
+            height: 14px;
+            background-color: #FFD3B6;
+            border-radius: 50%;
+            top: 42px;
+            left: 56px;
+            z-index: 11;
+            border: 1px solid rgba(0, 0, 0, 0.2);
+            box-shadow: 0 1px 2px rgba(0,0,0,0.1);
+        }
+
+        .eye {
+            position: absolute;
+            width: 32px;
+            height: 32px;
+            background-color: white;
+            border-radius:50% ;
+            top: 0;
+            border: 2px solid #333;
+        }
+
+        .eye.left {
+            left: 0;
+        }
+        
+        .eye.right {
+            left: 98px;
+        }
+
+        .pupil {
+            position: absolute;
+            width: 16px;
+            height: 16px;
+            background-color: #333;
+            border-radius: 50%;
+            top: 7px;
+            left: 7px;
+            animation: blink 3s infinite;
+        }
+
+        .mouth {
+            position: absolute;
+            width: 45px;
+            height: 22px;
+            border-radius: 0 0 50% 50%;
+            background-color: #FF8C94;
+            top: 65px;
+            left: 42px;
+            transition: all 0.3s ease;
+            animation: smile 5s infinite;
+        }
+
+        .cheek {
+            position: absolute;
+            width: 22px;
+            height: 18px;
+            background-color: #FF8C94;
+            border-radius: 50%;
+            top: 32px;
+            opacity: 0.5;
+            z-index: 11;
+            transition: all 0.3s;
+        }
+
+        .cheek.left {
+            left: -12px;
+        }
+
+        .cheek.right {
+            left: 120px;
+        }
+
+        .body{
+            position: absolute;
+            width: 160px;
+            height: 190px;
+            background-color: #FFAAA5;
+            border-radius: 25px;
+            top: 240px;
+            left: 95px;
+            z-index: 5;
+            transition: background-color 0.3s;
+        }
+
+        .arm {
+            position: absolute;
+            width: 45px;
+            height: 130px;
+            background-color: #FFD3B6;
+            border-radius: 25px;
+            top: 240px;
+            z-index: 6;
+            animation: wave 3s infinite;
+        }
+
+        .arm.left {
+            left: 55px;
+            transform-origin: top center;
+        }
+
+        .arm.right {
+            left: 250px;
+            transform-origin: 1.5s;
+        }
+
+        .hand {
+            position: absolute;
+            width: 28px;
+            height: 28px;
+            background-color: #FFD3B6;
+            border-radius: 50%;
+            bottom: -5px;
+            left: 8px;
+            box-shadow: 0 0 0 2px rgba(0,0,0,0.1);
+        }
+
+        .leg {
+            position: absolute;
+            width: 55px;
+            height: 85px;
+            background-color: #FFD3B6;
+            border-radius: 0 0 25px 25px;
+            top: 410px;
+            z-index: 4;
+        }
+
+        .leg.left {
+            left: 110px;
+        }
+
+        .leg.right {
+            left: 185px;
+        }
+
+        /* Instructions */
+        .instruction {
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(0,0,0,0.7);
+            color: white;
+            padding: 8px 15px;
+            border-radius: 10px;
+            font-size: 11px;
+            z-index: 100;
+            font-family: Arial, sans-serif;
+            white-space: nowrap;
+        }
+
+        /* Sound toggle button */
+        .sound-toggle {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: white;
+            border: none;
+            font-size: 24px;
+            padding: 10px;
+            border-radius: 50%;
+            cursor: pointer;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+            z-index: 100;
+            transition: all 0.3s;
+        }
+
+        .sound-toogle:hover {
+            transform: scale(1.1);
+        }
+
+        @keyframes wave {
+            0%, 100% { transform: rotate(0deg); }
+            50% { transform: rotate(20deg); }
+        }
+
+        @keyframes blink {
+            0%, 45%, 55%, 100% { transform: scaleY(1); }
+            50% { transform: rotate(20deg); }
+        }
+
+        @keyframes blink {
+            0%, 45%, 55%, 100%  {transform: scaleY(1);}
+            48%, 52%  { transform: scaleY(0.1); }
+        }
+
+        @keyframes smile {
+            0%, 70%, 100% { height: 22px; }
+            80% { height: 28px; }
+        }
+
+        @keyframes fadeOut {
+            0% { opacity: 1; transform: translateY(0) scale(1);}
+            100% { opacity: 0; transform: translateY(-60px) scale(1.2); }
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px);}
+        }
+
+        @keyframes float-up {
+            0% { transform: translateY(0) rotate(0deg); opacity: 1; }
+            100% { transform: translateY(-100px) rotate(20deg); opacity: 0; }
+
+        }
+
+        .bounce-animation {
+            animation: bounce 0.5s;
+        }
+
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
