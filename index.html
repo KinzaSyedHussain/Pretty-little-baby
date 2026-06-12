@@ -253,4 +253,25 @@
             box-shadow: 0 2px 5px rgba(0,0,0,0.1);
         }
 
-        
+        .rattle-drag {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #FFD700, #FFA500);
+            border-radius: 50%;
+            position: relative;
+            cursor: grab;
+            transition: transform 0.2s, box-shadow 0.2s;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .rattle-drag:active {
+            cursor: grabbing;
+            transform: scale(0.95);
+        }
+
+        .rattle-drag:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+        }
+
+       
