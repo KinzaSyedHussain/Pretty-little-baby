@@ -274,4 +274,151 @@
             box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
         }
 
-       
+        .rattle-drag:before {
+            content: '';
+            position: absolute;
+            width: 10px;
+            height: 45px;
+            background: linear-gradient(135deg, #8B4513, #A0522D);
+            border-radius: 5px;
+            bottom: -45;
+            left: 25px;
+        }
+
+        .rattle-drag:after {
+            content: '✦';
+            position: absolute;
+            font-size: 28px;
+            color: #FF8C00;
+            top: 12px;
+            left: 18px;
+        }
+
+        .rattle-drag .label {
+            position: absolute;
+            bottom: -55px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 11px;
+            font-weight: bold;
+            color: #FF8C00;
+            white-space: nowrap;
+            background: white;
+            padding: 2px 8px;
+            border-radius: 15px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .drag-item {
+            user-select: none;
+        }
+
+        .drag-item.dragging {
+            opacity: 0.5;
+            cursor: grabbing;
+        }
+
+        .reaction-bubble {
+            position: fixed;
+            background: white;
+            padding: 10px 20px;
+            border-radius: 30px;
+            font-size:  24px;
+            font-weight: bold;
+            white-space: nowrap;
+            z-index: 200;
+            animation: fateOut 1s forwards;
+            pointer-events: none;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+            font-family: 'Comic Sans Ms', cursive;
+            border: 2px solid #FF69B4;
+        }
+
+        .bow, .cap {
+            position: absolute;
+            z-index: 12;
+            transition: all 0.3s ease;
+        }
+
+        .bow {
+            width: 100px;
+            height: 60px;
+            top: 30px;
+            left: 125px;
+        }
+
+        .bow-center {
+            position: absolute;
+            width: 30px;
+            height:30px;
+            background: #FF69B4;
+            border-radius: 50%;
+            top: 15px;
+            left: 35px;
+            z-index: 2;
+        }
+
+        .bow-loop {
+            position: absolute;
+            width: 50px;
+            height: 40px;
+            background: #FF69B4;
+            border-radius: 50%;
+        }
+
+        .bow-loop.left {
+            top: 0;
+            left: 0;
+            transform: rotate(-30deg);
+        }
+
+        .bow-loop.right {
+            top: 0;
+            right: 0;
+            transform: rotate(30deg);
+        }
+
+        /* Boy Cap */
+        .cap {
+            width: 120px;
+            height: 50px;
+            background: linear-gradient(135deg, #4682B4, #2E5E8E);
+            border-radius: 30px 30px 15px 15px;
+            top: 35px;
+            left: 115px;
+            display: none
+        }
+
+        .cap-brim {
+            position: absolute;
+            width: 140;
+            height: 15px;
+            background: #2E5E8E;
+            border-radius: 10px;
+            bottom: -8px;
+            left: -10px;
+        }
+
+        .cap-button {
+            position: absolute;
+            width: 15px;
+            height: 15px;
+            background: #FFD700;
+            border-radius: 50%;
+            top: 15px;
+            left: 52px;
+        }
+
+        /* Head */
+        .head {
+            position: absolute;
+            width: 200px;
+            height: 220px;
+            background-color: #FFD3B6;
+            border-radius: 50% 50% 45% 45%;
+            top: 50px;
+            left: 75px;
+            z-index: 10;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: background-color 0.3;
+        }
