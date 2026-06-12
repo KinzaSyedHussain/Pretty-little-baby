@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pretty Little Baby - Interactive Baby Game</title>
+    <style>
+        * {
+            user-select: none;
+        }
+
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background: linear-gradient(135deg, #f0f8ff, #e0f0ff);
+            overflow: hidden;
+            font-family: 'Comic Sans MS', 'Chalkboard SE', 'Arial', sans-serif;
+            position: relative;
+            margin: 0;
+            padding: 20px;
+        }
+
+        /* Main container */
+        .main-wrapper {
+            display: flex;
+            gap: 40px;
+            align-items: center;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        /* Baby container */
+        .baby-container {
+            position: relative;
+            width: 350px;
+            height: 450px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        /* Title at the top */
+        .title {
+            position: fixed;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 32px;
+            font-family: 'Comic Sans MS', cursive;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+            z-index: 200;
+            transition: all 0.3s ease;
+            white-space: nowrap;
+            background: rgba(255,255,255,0.9);
+            padding: 10px 30px;
+            border-radius: 50px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.15);
+            backdrop-filter: blur(5px);
+        }
+
+        .title.pink {
+            color: #FF69B4;
+            border: 2px solid #FF69B4;
+        }
+
+        .title.blue {
+            color: #4682B4;
+            border: 2px solid #87CEEB;
+        }
+
+        .gender-toggle-vertical {
+            position: fixed;
+            left: 30px;
+            top: 50%;
+            transform: translateY(-50%);
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            z-index: 100;
+            background: rgba(255,255,255,0.95);
+            padding: 20px 15px;
+            border-radius: 50px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            backdrop-filter: blur(5px);
+            border: 2px solid #FF69B4;
+            transition: border-color 0.3s;
+        }
+
+        .gender-toggle-vertical.boy-mode {
+            border-color: #87CEEB;
+        }
+
+        .gender-btn-vertical {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            font-size: 35px;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3 ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: white;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        .gender-btn-vertical:hover {
+            transform: scale(1.1);
+        }
+
+        .gender-btn-vertical.girl {
+            background: linear-gradient(135deg, #FF69B4, #FF1493);
+            color: white;
+            box-shadow: 0 5px 15px rgba(255,105,180,0.4);
+        }
+
+        .gender-btn-vertical.boy {
+            background: linear-gradient(135deg, #87CEEB,#4682B4);
+            color: white;
+            box-shadow: 0 5px 15px rgba(135,206,235,0.4);
+        }
+
+        .gender-btn-vertical.active {
+            transform: scale(1.15);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+            border: 3px solid white;
+        }
+
+        .gender-label {
+            font-size: 12px;
+            margin-top: 5px;
+            text-align: center;
+            font-weight: bold;
+        }
+
+        .drag-items-vertical {
+            position: fixed;
+            right: 30px;
+            top: 50%;
+            transform: translateY(-50%);
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+            z-index: 100;
+            background: rgba(255, 255, 255, 0.95);
+            padding: 20px 15px;
+            border-radius: 60px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            backdrop-filter: blur(5px);
+            border: 2px solid #FF69B4;
+            transition: border-color 0.3s;
+        }
+
+        .drag-items-vertical.boy-mode {
+            border-color: #87CEEB;
+        }
+
+        .feeder {
+            width: 70px;
+            height: 90px;
+            background: linear-gradient(135deg, #87CEEB, #4682B4);
+            border-radius: 25px;
+            position: relative;
+            cursor: grab;
+            transition: transform 0.2s, box-shadow 0.2s;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        .feeder:active {
+            cursor: grabbing;
+            transform: scale(0.95);
+        }
+
+        .feeder:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+        }
+
+        .feeder:before {
+            content: '';
+            position: absolute;
+            width: 25px;
+            height: 30px;
+            background: #FFD3B6;
+            border-radius: 12px;
+            top: -18px;
+            left: 22px;
+        }
+
+        .feeder .label {
+            position: absolute;
+            bottom: -25px;
+            left: 50%;
+            transform: translate(-50%);
+            font-size: 11px;
+            font-weight: bold;
+            color: #4682B4;
+            white-space: nowrap;
+            background: white;
+            padding: 2px 8px;
+            border-radius: 15px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        /* Pacifier */
+        .pacifier-drag {
+            width: 55px;
+            height: 55px;
+            background: linear-gradient(135deg, #FF69B4, #FF1493);
+            border-radius: 50%;
+            position: relative;
+            cursor: grab;
+            transition: transform 0.2s, box-shadow 0.2s;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .pacifier-drag:active {
+            cursor: grabbing;
+            transform: scale(0.95);
+        }
+
+        .pacifier-drag:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .pacifier-drag:before {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 25px;
+            background: #FFB6C1;
+            border-radius: 0 0 50% 50%;
+            left: 17px;
+            top: 35px;
+        }
+
+        .pacifier-drag .label {
+            position: absolute;
+            bottom: -30px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 11px;
+            font-weight: bold;
+            color: #FF1493;
+            white-space: nowrap;
+            background: white;
+            padding: 2px 8px;
+            border-radius: 15px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        
