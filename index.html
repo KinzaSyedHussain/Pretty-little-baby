@@ -842,3 +842,86 @@
             console.log('Audio not supported');
         }
     }
+
+    // Gender switching
+    function setGender(gender) {
+        currentGender = gender;
+        playSound('click');
+
+        const girlBtn = document.querySelector('.gender-btn-vertical.girl');
+        const boyBtn = document.querySelector('.gender-btn-vertical.boy');
+        const girlBow = document.getElemetById('girlBow');
+        const boyCap = document.getElementById('boyCap');
+        const dragContainer = document.getElementById('dragItemsContainer');
+        const genderToggle = document.getElementById('genderToggle');
+        const babyContainer = document.getElementById('babyContainer');
+        const cheeks = document.querySelectorAll('.cheek');
+        const body = document.getElementById('babyBody');
+        const title = document.getElementById('title');
+        const mouth = document.querySelector('.mouth');
+
+        if (gender === 'girl') {
+            girlBtn.classList.add('active');
+            boyBtn.classList.remove('active');
+            girlBow.style.display = 'block';
+            boyCap.style.display = 'none';
+            dragContainer.classList.remove('boy-mode');
+            genderToggle.classList.remove('boy-mode');
+            babyContainer.classList.remove('boy-mode');
+
+            body.style.backgroundColor = '#FFAAA5';
+            cheeks.forEach(cheek => {
+                cheek.style.opacity = '0.5';
+            });
+
+            mouth.style.backgroundColor = '#FF8C94';
+            
+            title.classList.remove('blue');
+            title.classList.add('pink');
+            title.textContent = 'Pretty little baby 👧';
+
+            dragContainer.style.borderColor = '#FF69B4';
+            genderToggle.style.borderColor = '#FF69B4';
+
+            showReactionMessage('👧 Pretty Little Girl 💕', 200, 200);
+
+        } else {
+            boyBtn.classList.add('active');
+            girlBtn.classList.remove('active');
+            girlBow.style.display = 'none';
+            boyCap.style.display ='block';
+            dragContainer.classList.add('boy-mode');
+            genderToggle.classList.add('boy-mode');
+            babyContainer.classList.add('boy-made');
+
+            body.style.backgroundColor = '#87CEEB';
+            cheeks.forEach(cheek => {
+                cheek.style.backgroundColor = '#4682B4';
+                cheek.style.opacity = 'o.3';
+            });
+
+            mouth.style.backgroundColor = '#FFAAA5';
+
+            title.classList.remove('pink');
+            title.classList.add('blue');
+            title.textContent = 'Pretty Little Baby 👦';
+
+            dragContainer.style.borderColor = '#87CEEB';
+            genderToggle.style.borderColor = '#87CEEB';
+
+            showReactionMessage('👦 Pretty Little Boy! 💙', 200, 200);
+        }
+    }
+
+    function showReactionMessage(text, x, y) {
+        const bubble = document.createElement('div');
+        bubble.className = 'reaction-bubble';
+        bubble.textContent = text;
+        bubble.style.left = (x - 40) + 'px';
+        bubble.style.top = (y - 60) + 'px';
+        document.body.appendChild(bubble);
+
+        setTimeout(() => {
+            bubble.remove();
+        }, 1500);
+    }
