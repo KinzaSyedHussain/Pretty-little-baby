@@ -281,7 +281,7 @@
             height: 45px;
             background: linear-gradient(135deg, #8B4513, #A0522D);
             border-radius: 5px;
-            bottom: -45;
+            bottom: -45px;
             left: 25px;
         }
 
@@ -327,7 +327,7 @@
             font-weight: bold;
             white-space: nowrap;
             z-index: 200;
-            animation: fateOut 1s forwards;
+            animation: fadeOut 1s forwards;
             pointer-events: none;
             box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
             font-family: 'Comic Sans Ms', cursive;
@@ -391,7 +391,7 @@
 
         .cap-brim {
             position: absolute;
-            width: 140;
+            width: 140px;
             height: 15px;
             background: #2E5E8E;
             border-radius: 10px;
@@ -555,7 +555,8 @@
 
         .arm.right {
             left: 250px;
-            transform-origin: 1.5s;
+            transform-origin: top center;
+            animation-delay: 1.5s;
         }
 
         .hand {
@@ -588,7 +589,7 @@
         }
 
         /* Instructions */
-        .instruction {
+        .instructions {
             position: fixed;
             bottom: 20px;
             left: 50%;
@@ -619,7 +620,7 @@
             transition: all 0.3s;
         }
 
-        .sound-toogle:hover {
+        .sound-toggle:hover {
             transform: scale(1.1);
         }
 
@@ -631,11 +632,6 @@
         @keyframes blink {
             0%, 45%, 55%, 100% { transform: scaleY(1); }
             50% { transform: rotate(20deg); }
-        }
-
-        @keyframes blink {
-            0%, 45%, 55%, 100%  {transform: scaleY(1);}
-            48%, 52%  { transform: scaleY(0.1); }
         }
 
         @keyframes smile {
@@ -670,28 +666,27 @@
 </head>
 <body>
 
-     <div class="title pink" id="title">Pretty Littl Baby</div>
+    <div class="title pink" id="title">Pretty Little Baby</div>
 
-     <button class="'sound-toggle" id="soundToggle" title="Toggle Sound">🔊</button>
+     <button class="sound-toggle" id="soundToggle" title="Toggle Sound">🔊</button>
 
 
      <div class="gender-toggle-vertical" id="genderToggle">
-        </div>
-             <button class="gender-btn-vertical girl active" onclick="setGender('girl')">👧</button>
-👧</button>             
-             <div class="gender-label">Girl</div>
-        </div>
-        </div>
-            <button class="gender-btn-vertical boy" onclick="setGender('boy')">👦</button>
-            <div class="gender-label">Boy</div>
-        </div>
+    <div>
+        <button class="gender-btn-vertical girl active" onclick="setGender('girl')">👧</button>
+        <div class="gender-label">Girl</div>
     </div>
+    <div>
+        <button class="gender-btn-vertical boy" onclick="setGender('boy')">👦</button>
+        <div class="gender-label">Boy</div>
+    </div>
+</div>
     
     
     <div class="main-wrapper">
-        <div class="baby-container" id="baqbyContainer">
+        <div class="baby-container" id="babyContainer">
 
-            <div class="bow" id="girleBow">
+            <div class="bow" id="girlBow">
                 <div class="bow-loop left"></div>
                 <div class="bow-loop right"></div>
                 <div class="bow-center"></div>
@@ -813,7 +808,7 @@
                 for (let i = 0; i < 3;  i++) {
                     setTimeout(() => {
                         const osc3 = audioContext.createOscillator();
-                        const gaint3 = audioContext.createGain();
+                        const gain3 = audioContext.createGain();
                         osc3.connect(gain3);
                         gain3.connect(audioContext.destination);
                         osc3.frequency.value = 987.77 + (i * 100);
@@ -850,7 +845,7 @@
 
         const girlBtn = document.querySelector('.gender-btn-vertical.girl');
         const boyBtn = document.querySelector('.gender-btn-vertical.boy');
-        const girlBow = document.getElemetById('girlBow');
+        const girlBow = document.getElementById('girlBow');
         const boyCap = document.getElementById('boyCap');
         const dragContainer = document.getElementById('dragItemsContainer');
         const genderToggle = document.getElementById('genderToggle');
@@ -892,12 +887,12 @@
             boyCap.style.display ='block';
             dragContainer.classList.add('boy-mode');
             genderToggle.classList.add('boy-mode');
-            babyContainer.classList.add('boy-made');
+            babyContainer.classList.add('boy-mode');
 
             body.style.backgroundColor = '#87CEEB';
             cheeks.forEach(cheek => {
                 cheek.style.backgroundColor = '#4682B4';
-                cheek.style.opacity = 'o.3';
+                cheek.style.opacity = '0.3';
             });
 
             mouth.style.backgroundColor = '#FFAAA5';
@@ -925,3 +920,152 @@
             bubble.remove();
         }, 1500);
     }
+
+
+    // reaction bubble
+    function showReaction(text, x, y, soundType) {
+        const bubble = document.createElement('div');
+        bubble.className = 'reaction-bubble';
+        bubble.textContent = text;
+        bubble.style.left = (x - 40) + 'px';
+        bubble.style.top = (y - 60) + 'px';
+        document.body.appendChild(bubble);
+
+        playSound(soundType);
+
+        const mouth = document.querySelector('.mouth');
+
+        if (text === 'Yummy! 🥛' || text === 'Yummy! 🍼') {
+            createHeartsAtPosition(x, y);
+            mouth.style.transform = 'scale(0.9)';
+            setTimeout(() => {
+                mouth.style.transform = 'scale(1)';
+            }, 300);
+        } else if (text == 'Chu chu! 👶') {
+            mouth.style.width = '38px';
+            setTimeout(() => {
+                mouth.style.width = '45px';
+            }, 500);
+        } else if (text === 'Hee hee! 😊') {
+            mouth.style.backgroundColor = "#FF69B4";
+        } else {
+            mouth.style.backgroundColor = '#FFAAA5';
+        }
+        
+        setTimeout(() => {
+            mouth.style.height = '22px';
+            if (currentGender === 'girl') {
+                mouth.style.backgroundColor = '#FF8C94';
+            } else {
+                mouth.style.backgroundColor = '#FFAAA5';
+            }
+        }, 800);
+        const babyContainer = document.querySelector('.baby-container');
+        babyContainer.classList.add('bounce-animation');
+        setTimeout(() => {
+            babyContainer.classList.remove('bounce-animation');
+        }, 500);
+    }
+
+    setTimeout(() => {
+        bubble.remove();
+    }, 1000);
+
+
+function createHeartsAtPosition(x, y) {
+    for (let i = 0; i < 5; i++) {
+        const heart = document.createElement('div');
+        heart.innerHTML = '❤️';
+        heart.style.position = 'fixed';
+        heart.style.fontSize = (15 + Math.random() * 15) + 'px';
+        heart.style.left = (x - 50 + Math.random() * 100) + 'px';
+        heart.style.top = (y - 80 + Math.random() * 60) + 'px';
+        heart.style.opacity = '0';
+        heart.style.animation = `float-up ${1 + Math.random() * 1}s forwards`;
+        heart.style.pointerEvents = 'none';
+        heart.style.zIndex = '300';
+        document.body.appendChild(heart);
+
+        setTimeout(() => {
+            heart.remove();
+        }, 2000);
+    }
+}
+
+// Set up drag and drop
+const dragItems = document.querySelectorAll('.drag-item');
+const babyContainer = document.querySelector('.baby-container');
+
+dragItems.forEach(item => {
+    item.addEventListener('dragstart', function(e){
+        e.dataTransfer.setData('text/plain', this.getAttribute('data-type'));
+        this.classList.add('dragging');
+        e.dataTransfer.effectAllowed = 'copy';
+        playSound('click');
+    });
+
+    item.addEventListener('dragend', function(e) {
+        this.classList.remove('dragging');
+    });
+});
+
+// allow drop on baby container
+babyContainer.addEventListener('dragover', function(e) {
+    e.preventDefault();
+    e.dataTransfer.dropEffect = 'copy';
+});
+
+babyContainer.addEventListener('drop', function(e) {
+    e.preventDefault();
+    const itemType = e.dataTransfer.getData('text/plain');
+    const rect = babyContainer.getBoundingClientRect();
+    const dropX = e.clientX;
+    const dropY = e.clientY;
+
+    const headRect = document.querySelector('.head').getBoundingClientRect();
+    const isOnFace = dropX >= headRect.left && dropX <= headRect.right &&
+                    dropY >= headRect.top && dropY <= headRect.bottom;
+    
+    if (isOnFace) {
+        if (itemType === 'feeder') {
+            showReaction('Yummy! 🥛', dropX, dropY, 'yummy');
+        } else if (itemType === 'pacifier') {
+            showReaction('Chu chu! 👶', dropX, dropY, 'chu');
+        }else if (itemType === 'rattle') {
+            showReaction('Hee hee! 😊', dropX, dropY, 'giggle');
+
+            //more rattle sound
+            setTimeout(() => playSound('rattle'), 100);
+        }
+    }else {
+        showReaction('😢 Missed!', dropX, dropY, 'click');
+    }
+});
+
+// hearts on baby
+babyContainer.addEventListener('click', function(e) {
+    const rect= babyContainer.getBoundingClientRect();
+    createHeartsAtPosition(rect.left + 175, rect.top + 255);
+    playSound('giggle');
+    showReactionMessage('😊 Giggles!', rect.left + 175, rect.top + 150);
+});
+
+// Sound toggle
+const soundToggle = document.getElementById('soundToggle');
+soundToggle.addEventListener('click', function(){
+    soundEnabled = !soundEnabled;
+    this.textContent = soundEnabled ? '🔊' : '🔇';
+    const instructions = document.querySelector('.instructions');
+    if (soundEnabled) {
+        instructions.innerHTML = '🔊 SOUND ENABLED | ✨ Drag items onto baby\'s face! | Bottle → "Yummy!" | Pacifier → "Chu chu!" | Rattle → "Hee hee!" ✨';
+        showReactionMessage('🔊 Sound On!', 200, 200);
+    } else {
+        instructions.innerHTML = '🔇 SOUND OFF | ✨ Drag items onto baby\'s face! | Bottle → "Yummy!" | Pacifier → "Chu chu!" | Rattle → "Hee hee!" ✨';
+        showReactionMessage('🔇 Sound Off!', 200, 200);
+    }
+});
+
+setGender('girl');
+</script>
+</body>
+</html>
