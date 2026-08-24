@@ -63,8 +63,6 @@ if (title) {
     if (dragContainer) dragContainer.style.borderColor = '#FF69B4';
     if (genderToggle) genderToggle.style.borderColor = '#FF69B4';
 
-    showReactionMessage('👧 Pretty Little Girl 💕', 200, 200);
-
 } else {
     if (boyBtn) boyBtn.classList.add('active');
     if (girlBtn) girlBtn.classList.remove('active');
@@ -94,7 +92,7 @@ if (title) {
     if (dragContainer) dragContainer.style.borderColor = '#87CEEB';
     if (genderToggle) genderToggle.style.borderColor = '#87CEEB';
 
-    showReactionMessage('👦 Pretty Little Boy! 💙', 200, 200);
+
   }
 }
 
@@ -165,10 +163,6 @@ for (let i = 0; i < 5; i++) {
 const heart = document.createElement('div');
 heart.innerHTML = '❤️';
 heart.style.position = 'fixed';
-heart.style.fontSize = (15 + Math.random() * 15) + 'px';
-heart.style.left = (x - 50 + Math.random() * 100) + 'px';
-heart.style.top = (y - 80 + Math.random() * 60) + 'px';
-heart.style.opacity = '0';
 heart.style.animation = `float-up ${1 + Math.random() * 1}s forwards`;
 heart.style.pointerEvents = 'none';
 heart.style.zIndex = '300';
