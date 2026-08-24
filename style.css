@@ -46,7 +46,6 @@ body {
     background: rgba(255,255,255,0.9);
     padding: 10px 30px;
     border-radius: 50px;
-    box-shadow: 0 5px 20px rgba(0,0,0,0.15);
     backdrop-filter: blur(5px);
 }
 
@@ -71,7 +70,6 @@ body {
     background: rgba(255,255,255,0.95);
     padding: 20px 15px;
     border-radius: 50px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
     backdrop-filter: blur(5px);
     transition: border-color 0.3s;
 }
@@ -92,7 +90,6 @@ body {
     align-items: center;
     justify-content: center;
     background: white;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
 }
 
 .gender-btn-vertical:hover {
@@ -111,7 +108,6 @@ body {
 
 .gender-btn-vertical.active {
     transform: scale(1.15);
-    box-shadow: 0 8px 25px rgba(0,0,0,0.3);
     border: 3px solid white;
 }
 
@@ -134,7 +130,6 @@ body {
     background: rgba(255, 255, 255, 0.95);
     padding: 20px 15px;
     border-radius: 60px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
     backdrop-filter: blur(5px);
     transition: border-color 0.3s;
 }
@@ -150,8 +145,7 @@ body {
     border-radius: 25px;
     position: relative;
     cursor: grab;
-    transition: transform 0.2s, box-shadow 0.2s;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    transition: transform 0.2s;
 }
 
 .feeder:active {
@@ -159,10 +153,7 @@ body {
     transform: scale(0.95);
 }
 
-.feeder:hover {
-    transform: scale(1.05);
-    box-shadow: 0 8px 20px rgba(0,0,0,0.3);
-}
+
 
 .feeder:before {
     content: '';
@@ -187,7 +178,6 @@ body {
     background: white;
     padding: 2px 8px;
     border-radius: 15px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
 }
 
 
@@ -199,8 +189,7 @@ body {
     border-radius: 50%;
     position: relative;
     cursor: grab;
-    transition: transform 0.2s, box-shadow 0.2s;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    transition: transform 0.2s;
 }
 
 .pacifier-drag:active {
@@ -208,10 +197,6 @@ body {
     transform: scale(0.95);
 }
 
-.pacifier-drag:hover {
-    transform: scale(1.05);
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
-}
 
 .pacifier-drag:before {
     content: '';
@@ -236,7 +221,6 @@ body {
     background: white;
     padding: 2px 8px;
     border-radius: 15px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
 }
 
 .rattle-drag {
@@ -246,8 +230,7 @@ body {
     border-radius: 50%;
     position: relative;
     cursor: grab;
-    transition: transform 0.2s, box-shadow 0.2s;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    transition: transform 0.2s;
 }
 
 .rattle-drag:active {
@@ -287,7 +270,6 @@ body {
     background: white;
     padding: 2px 8px;
     border-radius: 15px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
 }
 
 .drag-item {
@@ -310,7 +292,6 @@ body {
     z-index: 200;
     animation: fadeOut 1s forwards;
     pointer-events: none;
-    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
     font-family: 'Comic Sans Ms', cursive;
 }
 
@@ -398,7 +379,6 @@ body {
     top: 50px;
     left: 75px;
     z-index: 10;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
     transition: background-color 0.3;
 }
 
@@ -439,7 +419,6 @@ body {
     left: 56px;
     z-index: 11;
     border: 1px solid rgba(0, 0, 0, 0.2);
-    box-shadow: 0 1px 2px rgba(0,0,0,0.1);
 }
 
 .eye {
@@ -544,7 +523,6 @@ body {
     border-radius: 50%;
     bottom: -5px;
     left: 8px;
-    box-shadow: 0 0 0 2px rgba(0,0,0,0.1);
 }
 
 .leg {
@@ -573,7 +551,6 @@ body {
     width: 65px;
     height: 30px;
     border-radius: 15px 15px 20px 20px;
-    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.15);;
     transition: background-color 0.3s ease;
 }
 
@@ -598,24 +575,6 @@ body {
 }
 
 
-.sound-toggle {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    background: white;
-    border: none;
-    font-size: 24px;
-    padding: 10px;
-    border-radius: 50%;
-    cursor: pointer;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
-    z-index: 100;
-    transition: all 0.3s;
-}
-
-.sound-toggle:hover {
-    transform: scale(1.1);
-}
 
 @keyframes wave {
     0%, 100% { transform: rotate(0deg); }
