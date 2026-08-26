@@ -65,13 +65,11 @@ body {
     transform: translateY(-50%);
     display: flex;
     flex-direction: column;
-    gap: 20px;
-    z-index: 100;
-    background: rgba(255,255,255,0.95);
+    gap: 50px;
+    z-index: 200;
+    background: #ffffff;
     padding: 20px 15px;
-    border-radius: 50px;
-    backdrop-filter: blur(5px);
-    transition: border-color 0.3s;
+    border-radius: 79px;
 }
 
 .gender-toggle-vertical.boy-mode {
@@ -79,18 +77,6 @@ body {
     border: 3px solid white;
 }
 
-.gender-btn-vertical {
-    width: 70px;
-    height: 70px;
-    border-radius: 50%;
-    font-size: 35px;
-    cursor: pointer;
-    transition: all 0.3 ease;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: white;
-}
 
 .gender-btn-vertical:hover {
     transform: scale(1.1);
@@ -343,7 +329,7 @@ body {
     height: 50px;
     background: #3498db;
     border-radius: 30px 30px 15px 15px;
-    top: 35px;
+    top: 20px;
     left: 115px;
     display: none
 }
@@ -392,11 +378,11 @@ body {
 }
 
 .ear.left {
-    left: 55px;
+    left: 50px;
 }
 
 .ear.right {
-    right: 55px;
+    right: 50px;
 }
 
 .face-center {
@@ -409,8 +395,8 @@ body {
 
 .nose {
     position: absolute;
-    width: 18px;
-    height: 14px;
+    width: 20px;
+    height: 18px;
     background-color: #FFD3B6;
     border-radius: 50%;
     top: 42px;
@@ -421,8 +407,8 @@ body {
 
 .eye {
     position: absolute;
-    width: 32px;
-    height: 32px;
+    width: 35px;
+    height: 37px;
     background-color: white;
     border-radius:50% ;
     top: 0;
@@ -438,8 +424,8 @@ body {
 
 .pupil {
     position: absolute;
-    width: 16px;
-    height: 16px;
+    width: 20px;
+    height: 20px;
     background-color: #000000;
     border-radius: 50%;
     top: 7px;
@@ -460,8 +446,8 @@ body {
 
 .cheek {
     position: absolute;
-    width: 22px;
-    height: 18px;
+    width: 25px;
+    height: 20px;
     background-color: #FF8C94;
     border-radius: 50%;
     top: 32px;
@@ -481,7 +467,7 @@ body {
 .body{
     position: absolute;
     width: 160px;
-    height: 190px;
+    height: 180px;
     background-color: #FFAAA5;
     border-radius: 10px;
     top: 240px;
@@ -576,20 +562,6 @@ body {
     50% { transform: rotate(20deg); }
 }
 
-@keyframes blink {
-    0%, 45%, 55%, 100% { transform: scaleY(1); }
-    50% { transform: rotate(20deg); }
-}
-
-@keyframes smile {
-    0%, 70%, 100% { height: 22px; }
-    80% { height: 28px; }
-}
-
-@keyframes fadeOut {
-    0% { opacity: 1; transform: translateY(0) scale(1);}
-    100% { opacity: 0; transform: translateY(-60px) scale(1.2); }
-}
 
 @keyframes bounce {
     0%, 100% { transform: translateY(0); }
