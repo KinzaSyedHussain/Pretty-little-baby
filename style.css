@@ -76,6 +76,7 @@ body {
 
 .gender-toggle-vertical.boy-mode {
     border-color: #87CEEB;
+    border: 3px solid white;
 }
 
 .gender-btn-vertical {
@@ -83,7 +84,6 @@ body {
     height: 70px;
     border-radius: 50%;
     font-size: 35px;
-    border: none;
     cursor: pointer;
     transition: all 0.3 ease;
     display: flex;
@@ -298,11 +298,10 @@ body {
 .bow, .cap {
     position: absolute;
     z-index: 12;
-    transition: all 0.3s ease;
 }
 
 .bow {
-    width: 100px;
+    width: 110px;
     height: 60px;
     top: 30px;
     left: 125px;
@@ -315,7 +314,7 @@ body {
     background: #FF69B4;
     border-radius: 50%;
     top: 15px;
-    left: 35px;
+    left: 42px;
     z-index: 2;
 }
 
@@ -328,13 +327,13 @@ body {
 }
 
 .bow-loop.left {
-    top: 0;
+    top: 20px;
     left: 0;
     transform: rotate(-30deg);
 }
 
 .bow-loop.right {
-    top: 0;
+    top:20px;
     right: 0;
     transform: rotate(30deg);
 }
@@ -375,11 +374,10 @@ body {
     width: 200px;
     height: 220px;
     background-color: #FFD3B6;
-    border-radius: 50% 50% 45% 45%;
+    border-radius: 55% 55% 55% 55%;
     top: 50px;
     left: 75px;
     z-index: 10;
-    transition: background-color 0.3;
 }
 
 .ear {
@@ -388,7 +386,7 @@ body {
     height: 38px;
     background-color: #FFD3B6;
     border-radius: 50%;
-    top: 115px;
+    top: 150px;
     z-index: 9;
     border: 1px solid rgba(0,0,0,0.1);
 }
@@ -428,7 +426,6 @@ body {
     background-color: white;
     border-radius:50% ;
     top: 0;
-    border: 2px solid #333;
 }
 
 .eye.left {
@@ -443,7 +440,7 @@ body {
     position: absolute;
     width: 16px;
     height: 16px;
-    background-color: #333;
+    background-color: #000000;
     border-radius: 50%;
     top: 7px;
     left: 7px;
@@ -452,12 +449,12 @@ body {
 
 .mouth {
     position: absolute;
-    width: 45px;
-    height: 22px;
-    border-radius: 0 0 50% 50%;
+    width: 70px;
+    height: 30px;
+    border-radius: 0 0 35px 35px;
     background-color: #FF8C94;
-    top: 65px;
-    left: 42px;
+    top: 80px;
+    left: 30px;
     transition: all 0.3s ease;
 }
 
@@ -468,7 +465,7 @@ body {
     background-color: #FF8C94;
     border-radius: 50%;
     top: 32px;
-    opacity: 0.5;
+    opacity: 0.9;
     z-index: 11;
     transition: all 0.3s;
 }
@@ -486,11 +483,10 @@ body {
     width: 160px;
     height: 190px;
     background-color: #FFAAA5;
-    border-radius: 25px;
+    border-radius: 10px;
     top: 240px;
     left: 95px;
     z-index: 5;
-    transition: background-color 0.3s;
 }
 
 .arm {
@@ -517,10 +513,10 @@ body {
 
 .hand {
     position: absolute;
-    width: 28px;
-    height: 28px;
+    width: 35px;
+    height: 30px;
     background-color: #FFD3B6;
-    border-radius: 50%;
+    border-radius: 0 0 50% 50%;
     bottom: -5px;
     left: 8px;
 }
@@ -562,18 +558,17 @@ body {
     background-color: #3498db;
 }
 
-.leg::before {
-    content: '';
+.teeth {
     position: absolute;
     bottom: -12px;
-    left: -5px;
-    width: 65px;
+    left: 50px;
+    width: 10px;
     height: 6px;
+    top: 80px;
     background-color: #ffffff;
     border-radius: 0 0 10px 10px;
     z-index: 1;
 }
-
 
 
 @keyframes wave {
