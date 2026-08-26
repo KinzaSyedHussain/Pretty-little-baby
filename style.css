@@ -17,13 +17,6 @@ body {
     padding: 20px;
 }
 
-.main-wrapper {
-    display: flex;
-    gap: 40px;
-    align-items: center;
-    justify-content: center;
-    flex-wrap: wrap;
-}
 
 .baby-container {
     position: relative;
@@ -38,12 +31,11 @@ body {
     top: 20px;
     left: 50%;
     transform: translateX(-50%);
-    font-size: 32px;
+    font-size: 50px;
     font-family: 'Comic Sans MS', cursive;
     z-index: 200;
     transition: all 0.3s ease;
     white-space: nowrap;
-    background: rgba(255,255,255,0.9);
     padding: 10px 30px;
     border-radius: 50px;
     backdrop-filter: blur(5px);
@@ -78,24 +70,15 @@ body {
 }
 
 
-.gender-btn-vertical:hover {
-    transform: scale(1.1);
-}
-
 .gender-btn-vertical.girl {
     background: #FF69B4;
-    color: white;
+
 }
 
 .gender-btn-vertical.boy {
     background: #87CEEB;
-    color: white;
 }
 
-.gender-btn-vertical.active {
-    transform: scale(1.15);
-    border: 3px solid white;
-}
 
 .gender-label {
     font-size: 12px;
@@ -113,7 +96,7 @@ body {
     flex-direction: column;
     gap: 110px;
     z-index: 100;
-    background: rgba(255, 255, 255, 0.95);
+    background: #ffffff;
     padding: 20px 15px;
     border-radius: 60px;
     backdrop-filter: blur(5px);
@@ -124,49 +107,6 @@ body {
     border-color: #87CEEB;
 }
 
-.feeder {
-    width: 70px;
-    height: 90px;
-    background: #3498db;
-    border-radius: 25px;
-    position: relative;
-    cursor: grab;
-    transition: transform 0.2s;
-}
-
-.feeder:active {
-    cursor: grabbing;
-    transform: scale(0.95);
-}
-
-
-
-.feeder:before {
-    content: '';
-    position: absolute;
-    width: 25px;
-    height: 30px;
-    background: #e4dede;
-    border-radius: 12px;
-    top: -18px;
-    left: 22px;
-}
-
-.feeder .label {
-    position: absolute;
-    bottom: -25px;
-    left: 50%;
-    transform: translate(-50%);
-    font-size: 11px;
-    font-weight: bold;
-    color: #4682B4;
-    white-space: nowrap;
-    background: white;
-    padding: 2px 8px;
-    border-radius: 15px;
-}
-
-
 
 .pacifier-drag {
     width: 55px;
@@ -175,7 +115,7 @@ body {
     border-radius: 50%;
     position: relative;
     cursor: grab;
-    transition: transform 0.2s;
+    top: ;
 }
 
 .pacifier-drag:active {
@@ -204,9 +144,7 @@ body {
     font-weight: bold;
     color: #FF1493;
     white-space: nowrap;
-    background: white;
     padding: 2px 8px;
-    border-radius: 15px;
 }
 
 .rattle-drag {
@@ -216,7 +154,7 @@ body {
     border-radius: 50%;
     position: relative;
     cursor: grab;
-    transition: transform 0.2s;
+    top: -40px;
 }
 
 .rattle-drag:active {
@@ -253,10 +191,52 @@ body {
     font-weight: bold;
     color: #FF8C00;
     white-space: nowrap;
-    background: white;
     padding: 2px 8px;
-    border-radius: 15px;
+
 }
+
+.feeder {
+    width: 50px;
+    height: 90px;
+    background: #a9dcff;
+    border-radius: 25% 25% 15% 15%;
+    position: relative;
+    cursor: grab;
+    transition: transform 0.2s;
+}
+
+.feeder:active {
+    cursor: grabbing;
+    transform: scale(0.95);
+}
+
+
+
+.feeder:before {
+    content: '';
+    position: absolute;
+    width: 22px;
+    height: 30px;
+    background: #e4dede;
+    border-radius: 12px;
+    top: -18px;
+    left: 12px;
+}
+
+
+.feeder .label {
+    position: absolute;
+    bottom: -25px;
+    left: 50%;
+    transform: translate(-50%);
+    font-size: 11px;
+    font-weight: bold;
+    color: #4682B4;
+    white-space: nowrap;
+    padding: 2px 8px;
+}
+
+
 
 .drag-item {
     user-select: none;
@@ -269,9 +249,7 @@ body {
 
 .reaction-bubble {
     position: fixed;
-    background: white;
     padding: 10px 20px;
-    border-radius: 30px;
     font-size:  24px;
     font-weight: bold;
     white-space: nowrap;
@@ -466,10 +444,10 @@ body {
 
 .body{
     position: absolute;
-    width: 160px;
+    width: 170px;
     height: 180px;
     background-color: #FFAAA5;
-    border-radius: 10px;
+    border-radius: 50%;
     top: 240px;
     left: 95px;
     z-index: 5;
@@ -481,13 +459,14 @@ body {
     height: 130px;
     background-color: #FFD3B6;
     border-radius: 25px;
-    top: 240px;
+    top: 260px;
     z-index: 6;
     animation: wave 3s infinite;
+
 }
 
 .arm.left {
-    left: 80px;
+    left: 85px;
     transform-origin: top center;
 }
 
@@ -497,32 +476,22 @@ body {
     animation-delay: 1.5s;
 }
 
-.hand {
-    position: absolute;
-    width: 35px;
-    height: 30px;
-    background-color: #FFD3B6;
-    border-radius: 0 0 50% 50%;
-    bottom: -5px;
-    left: 8px;
-}
-
 .leg {
     position: absolute;
     width: 55px;
     height: 85px;
     background-color: #FFD3B6;
     border-radius: 0 0 25px 25px;
-    top: 410px;
+    top: 400px;
     z-index: 4;
 }
 
 .leg.left {
-    left: 110px;
+    left: 120px;
 }
 
 .leg.right {
-    left: 185px;
+    left: 180px;
 }
 
 .leg::after {
