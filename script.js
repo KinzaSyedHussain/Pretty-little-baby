@@ -8,7 +8,7 @@ function playSound(type) {
 
     if (type === 'giggle') {
         audioFile = 'giggle.mp3';
-    } else if (type === 'yummy' || type === 'chu' || type === 'rattle'){
+    } else if (type === 'yummy' || type === 'chu' || type === 'rattle') {
         audioFile = 'laugh.mp3';
     } else if (type === 'click') {
         return;
@@ -51,7 +51,7 @@ function setGender(gender) {
         }
 
         if (body) body.style.backgroundColor = '#FFAAA5';
-        cheeks.forEach(cheek => { cheek.style.opacity = '0.5';});
+        cheeks.forEach(cheek => { cheek.style.opacity = '0.5'; });
         if (mouth) mouth.style.backgroundColor = '#FF8C94';
         
         if (title) {
@@ -66,7 +66,7 @@ function setGender(gender) {
         if (boyBtn) boyBtn.classList.add('active');
         if (girlBtn) girlBtn.classList.remove('active');
         if (girlBow) girlBow.style.display = 'none';
-        if (boyCap) boyCap.style.display ='block';
+        if (boyCap) boyCap.style.display = 'block';
         if (dragContainer) dragContainer.classList.add('boy-mode');
         if (genderToggle) genderToggle.classList.add('boy-mode');
         if (babyContainer) {
@@ -107,48 +107,7 @@ function showReactionMessage(text, x, y) {
 }
 
 function showReaction(text, x, y, soundType) {
-    const bubble = document.createElement('div');
-    bubble.className = 'reaction-bubble';
-    bubble.textContent = text;
-    bubble.style.left = (x - 40) + 'px';
-    bubble.style.top = (y - 60) + 'px';
-    document.body.appendChild(bubble);
-
     playSound(soundType);
-
-    const mouth = document.querySelector('.mouth');
-
-    if (text === 'Yummy! 🥛' || text === 'Yummy! 🍼') {
-        createHeartsAtPosition(x, y);
-        if (mouth) {
-            mouth.style.transform = 'scale(0.9)';
-            setTimeout(() => {
-                mouth.style.transform = 'scale(1)';
-            }, 300);
-        }
-    } else if (text === 'Chu chu! 👶') {
-        if (mouth) {
-            mouth.style.width = '38px';
-            setTimeout(() => {
-                mouth.style.width = '45px';
-            }, 500);
-        }
-    } else if (text === 'Hee hee! 😊') {
-        if (mouth) mouth.style.backgroundColor = "#FF69B4";
-    } else {
-        if (mouth) mouth.style.backgroundColor = '#FFAAA5';
-    }
-
-    setTimeout(() => {
-        if (mouth) {
-            mouth.style.height = '22px';
-            if (currentGender === 'girl') {
-                mouth.style.backgroundColor = '#FF8C94';
-            } else {
-                mouth.style.backgroundColor = '#FFAAA5';
-            }
-        }
-    }, 800);
 
     const babyContainer = document.querySelector('.baby-container');
     if (babyContainer) {
@@ -157,6 +116,13 @@ function showReaction(text, x, y, soundType) {
             babyContainer.classList.remove('bounce-animation');
         }, 500);
     }
+
+    const bubble = document.createElement('div');
+    bubble.className = 'reaction-bubble';
+    bubble.textContent = text;
+    bubble.style.left = (x - 40) + 'px';
+    bubble.style.top = (y - 60) + 'px';
+    document.body.appendChild(bubble);
 
     setTimeout(() => {
         bubble.remove();
@@ -186,7 +152,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const babyContainer = document.querySelector('.baby-container');
 
     dragItems.forEach(item => {
-        item.addEventListener('dragstart', function(e){
+        item.addEventListener('dragstart', function(e) {
             e.dataTransfer.setData('text/plain', this.getAttribute('data-type'));
             this.classList.add('dragging');
             e.dataTransfer.effectAllowed = 'copy';
