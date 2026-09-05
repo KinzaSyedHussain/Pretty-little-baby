@@ -18,7 +18,7 @@ body {
 }
 
 
-.baby-container {
+.baby {
     position: relative;
     width: 350px;
     height: 450px;
@@ -103,7 +103,7 @@ body {
 
 
 
-.pacifier-drag {
+.pacifier {
     width: 55px;
     height: 55px;
     background: #FF1493;
@@ -113,13 +113,13 @@ body {
     top: ;
 }
 
-.pacifier-drag:active {
+.pacifier:active {
     cursor: grabbing;
     transform: scale(0.95);
 }
 
 
-.pacifier-drag:before {
+.pacifier:before {
     content: '';
     position: absolute;
     width: 20px;
@@ -130,7 +130,7 @@ body {
     top: 35px;
 }
 
-.pacifier-drag .label {
+.pacifier .label {
     position: absolute;
     bottom: -30px;
     left: 50%;
@@ -142,7 +142,7 @@ body {
     padding: 2px 8px;
 }
 
-.rattle-drag {
+.rattle{
     width: 60px;
     height: 60px;
     background: #FF8C00;
@@ -152,12 +152,12 @@ body {
     top: -40px;
 }
 
-.rattle-drag:active {
+.rattle:active {
     cursor: grabbing;
     transform: scale(0.95);
 }
 
-.rattle-drag:before {
+.rattle:before {
     content: '';
     position: absolute;
     width: 10px;
@@ -168,7 +168,7 @@ body {
     left: 25px;
 }
 
-.rattle-drag:after {
+.rattle:after {
     content: '✦';
     position: absolute;
     font-size: 28px;
@@ -177,7 +177,7 @@ body {
     left: 18px;
 }
 
-.rattle-drag .label {
+.rattle .label {
     position: absolute;
     bottom: -55px;
     left: 50%;
@@ -491,11 +491,11 @@ body {
     transition: background-color 0.3s ease;
 }
 
-.baby-container.girl .leg::after {
+.baby.girl .leg::after {
     background-color: #FF69B4;
 }
 
-.baby-container.boy .leg::after {
+.baby.boy .leg::after {
     background-color: #3498db;
 }
 
@@ -513,8 +513,8 @@ body {
 
 
 @keyframes wave {
-    0%, 100% { transform: rotate(0deg); }
-    50% { transform: rotate(20deg); }
+    0%, 100% { transform: rotate(10deg); }
+    50% { transform: rotate(67deg); }
 }
 
 
@@ -535,4 +535,17 @@ body {
 
 .hidden {
     display: none;
+}
+
+
+.instructions {
+    position: fixed;
+    bottom: 30px;
+    left: 40%;
+}
+
+#bgmusic {
+    display: inline;
+    border-radius: 50% 50% 50% 50%;
+    top: 50%;
 }

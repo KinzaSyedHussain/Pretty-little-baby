@@ -1,6 +1,7 @@
 let currentGender = 'girl';
 let soundEnabled = true;
 
+
 function playSound(type) {
     if (!soundEnabled) return;
 
@@ -25,7 +26,7 @@ function playSound(type) {
 function setGender(gender) {
     currentGender = gender;
     playSound('click');
-
+  
     const girlBtn = document.querySelector('.gender-btn-vertical.girl');
     const boyBtn = document.querySelector('.gender-btn-vertical.boy');
     const girlBow = document.getElementById('girlBow');
@@ -109,11 +110,11 @@ function showReactionMessage(text, x, y) {
 function showReaction(text, x, y, soundType) {
     playSound(soundType);
 
-    const babyContainer = document.querySelector('.baby-container');
-    if (babyContainer) {
-        babyContainer.classList.add('bounce-animation');
+    const baby = document.querySelector('.baby');
+    if (baby) {
+        baby.classList.add('bounce-animation');
         setTimeout(() => {
-            babyContainer.classList.remove('bounce-animation');
+            baby.classList.remove('bounce-animation');
         }, 500);
     }
 
@@ -149,7 +150,7 @@ function createHeartsAtPosition(x, y) {
 
 document.addEventListener('DOMContentLoaded', () => {
     const dragItems = document.querySelectorAll('.drag-item');
-    const babyContainer = document.querySelector('.baby-container');
+    const baby = document.querySelector('.baby');
 
     dragItems.forEach(item => {
         item.addEventListener('dragstart', function(e) {
