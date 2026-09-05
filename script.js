@@ -2,6 +2,22 @@ let currentGender = 'girl';
 let soundEnabled = true;
 
 
+const music = document.getElementById('bgmusic');
+const toggleBtn = document.getElementById('bgmusicbtn');
+
+toggleBtn.addEventListener('click', () => {
+    if (music.paused) {
+        music.play()
+             .then(() => {
+                toggleBtn.textContent = 'Pause music';
+             })
+    
+    } else {
+        music.pause();
+        toggleBtn.textContent = "Play music";
+    }
+});
+
 function playSound(type) {
     if (!soundEnabled) return;
 

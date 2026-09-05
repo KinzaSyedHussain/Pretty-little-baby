@@ -544,8 +544,13 @@ body {
     left: 40%;
 }
 
-#bgmusic {
-    display: inline;
-    border-radius: 50% 50% 50% 50%;
-    top: 50%;
+#bgmusicbtn {
+    position: fixed;
+    font-size: 20px;
+    font-weight: bold;
+    background-color: white;
+    border-radius: 40%;
+    right: 5%;
+    top: 8%;
+ 
 }
