@@ -9,7 +9,7 @@ body {
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    background: #999999;
+    background:rgb(136, 211, 255);
     overflow: hidden;
     font-family: 'Comic Sans MS', 'Chalkboard SE', 'Arial', sans-serif;
     position: relative;
